@@ -1,65 +1,90 @@
-# C++
+# C++ Project Setup Guide
 
-## main.cpp(code) --> main (compiled)
+## **Compiling and Running C++ Code**
 
-4. Update and upgrading the system:
-$ sudo apt update -y
-$ sudo apt upgrade -y
-
-g++ --version
-cmake --version
-
-<!-- Compiler -->
-sudo apt install g++
-
-<!-- Run script -->
-g++ -o main main.cpp
-./main
-or
-g++ -o main main.cpp && ./main
-
-<!-- CMAKE -->
-sudo apt install cmake
-
-<!-- Create a CMakeLists.txt file: -->
-cmake_minimum_required(VERSION 3.10)
-project(MyProject)
-
-# Set the C++ standard
-set(CMAKE_CXX_STANDARD 17)
-
-# Add the executable
-add_executable(my_exe src/main.cpp)
-
-<!-- Configure and build: -->
-mkdir build && cd build && cmake .. && make && ./main
-
-
-
-
-<!-- Read Camera -->
-g++ -o src/main src/main.cpp && ./src/main
-
-g++ -o src/video_reader src/video_reader.cpp `pkg-config --cflags --libs opencv4` && ./src/video_reader
-
-
-my_project/
+### **File Structure**
+```plaintext
+PROJECT/
 │── src/
 │   ├── main.cpp
+│   ├── video_reader.cpp
 │── CMakeLists.txt
 │── build/
+```
 
+### Update the System
+Before installing any dependencies, update your system:
 
+```bash
+sudo apt update -y
+sudo apt upgrade -y
+```
+
+### Check Installed Compiler and CMake
+Check if g++ and cmake are installed:
+
+```bash
+g++ --version
+cmake --version
+```
+
+### Install Compiler and CMake
+If missing, install them using:
+
+```bash
+sudo apt install g++ -y
+sudo apt install cmake -y
+```
+
+## **Compiling and Running Scripts**
+
+### Basic Compilation
+Compile a simple C++ program:
+
+```bash
+g++ -o main main.cpp && ./main
+```
+
+### Compile and Run a Camera Reader
+
+```bash
+g++ -o src/main src/main.cpp && ./src/main
+```
+
+### Compile and Run a Video Reader (using OpenCV)
+
+```bash
+g++ -o src/video_reader src/video_reader.cpp `pkg-config --cflags --libs opencv4` && ./src/video_reader
+```
+
+## **Installing Dependencies**
+
+### Install OpenCV
+
+```bash
 sudo apt update
-sudo apt install libopencv-dev
+sudo apt install libopencv-dev -y
 pkg-config --modversion opencv4
+```
 
+### Install ONNX Runtime
 
+```bash
 wget https://github.com/microsoft/onnxruntime/releases/download/v1.16.0/onnxruntime-linux-x64-1.16.0.tgz
 tar -xvzf onnxruntime-linux-x64-1.16.0.tgz
 sudo mv onnxruntime-linux-x64-1.16.0 /usr/local/onnxruntime
+```
 
-<!-- wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-2.1.0+cpu.zip -->
-wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-2.6.0%2Bcpu.zip
+### Install LibTorch
+
+```bash
+wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-2.6.0+cpu.zip
 unzip libtorch-shared-with-deps-2.6.0+cpu.zip
 sudo mv libtorch /usr/local/
+```
+
+## **Building the Project with CMake**
+
+```bash
+mkdir build && cd build && cmake .. && make && ./main
+```
