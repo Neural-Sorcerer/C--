@@ -12,6 +12,7 @@ namespace fs = std::filesystem;
 using namespace std::chrono;
 
 // Default resolutions
+const cv::Size SD(640, 480);
 const cv::Size HD(1280, 720);
 const cv::Size FHD(1920, 1080);
 
@@ -31,6 +32,11 @@ std::string get_current_datetime() {
     return ss.str();
 }
 
+// Function to check if a string is a valid integer (camera ID)
+bool isNumber(const std::string& str) {
+    return !str.empty() && str.find_first_not_of("0123456789") == std::string::npos;
+}
+
 // Main Video Processing Function
 void run_pipeline(const std::string& source,
                   bool save = false,
@@ -40,9 +46,18 @@ void run_pipeline(const std::string& source,
                   cv::Size resolution = HD) {
 
     // Initialize VideoCapture
-    cv::VideoCapture cap(source);
+    cv::VideoCapture cap;
+    if (isNumber(source)) {
+        int cameraID = std::stoi(source);
+        cap.open(cameraID);
+        std::cout << "✅ Using Camera ID: " << cameraID << std::endl;
+    } else {
+        cap.open(source);
+        std::cout << "✅ Using Video File: " << source << std::endl;
+    }
+
     if (!cap.isOpened()) {
-        std::cerr << "Error: Cannot open video source: " << source << std::endl;
+        std::cerr << "Error: VideoCapture is not open: " << source << std::endl;
         return;
     }
 
@@ -167,9 +182,6 @@ int main(int argc, char* argv[]) {
     if (argc > 4) fps_limit = std::stoi(argv[4]);
     if (argc > 5) duration = std::stoi(argv[5]);
 
-    run_pipeline(source, save, save_fps, fps_limit, duration, HD);
+    run_pipeline(source, save, save_fps, fps_limit, duration, SD);
     return 0;
 }
-    // std::cout << fps_limit << std::endl;
-    // std::cout << save_fps << std::endl;
-    // exit(0);

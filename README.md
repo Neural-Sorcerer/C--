@@ -87,9 +87,9 @@ sudo mv libtorch /usr/local/
 ## **Building the Project with CMake**
 
 ```bash
+mkdir build && cd build && cmake .. && make && ./main "../assets/Earth.mp4" 1 -1 -1 -1
 mkdir build && cd build && cmake .. && make && ./main
-mkdir build && cd build && cmake .. && make && ./cv_inference_pipeline "../assets/Earth.mp4" 1 -1 -1 -1
-rm -rf build/
+cd .. && rm -rf build/ && mkdir build && cd build && cmake .. && make && ./main
 ```
 
 ## To run code: Code Runner Extension:

@@ -1,0 +1,5 @@
+/home/max/PROJECTS/2_Home_Projects/C++/build/CMakeFiles/rebuild_cache.dir
+/home/max/PROJECTS/2_Home_Projects/C++/build/CMakeFiles/edit_cache.dir
+/home/max/PROJECTS/2_Home_Projects/C++/build/CMakeFiles/pose.dir
+/home/max/PROJECTS/2_Home_Projects/C++/build/CMakeFiles/face.dir
+/home/max/PROJECTS/2_Home_Projects/C++/build/CMakeFiles/main.dir

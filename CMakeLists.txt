@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(C++)
 
-# Use C++17 standard
+# ✅ Use C++17 standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -14,17 +14,14 @@ set(ONNX_RUNTIME_DIR "/usr/local/onnxruntime")
 include_directories(${ONNX_RUNTIME_DIR}/include)
 link_directories(${ONNX_RUNTIME_DIR}/lib)
 
-# Find PyTorch
-# set(Torch_DIR "/usr/local/libtorch/share/cmake/Torch")
-# find_package(Torch REQUIRED)
-# include_directories(${TORCH_INCLUDE_DIRS})
+# ✅ Add first executable script
+add_executable(main src/cv_inference_pipeline.cpp)
+target_link_libraries(main ${OpenCV_LIBS} onnxruntime)
 
-# ✅ Add executable
-add_executable(cv_inference_pipeline src/cv_inference_pipeline.cpp)
+# ✅ Add second executable script
+add_executable(face src/cv_inference_pipeline_model_face.cpp)
+target_link_libraries(face ${OpenCV_LIBS} onnxruntime)
 
-# ✅ Link libraries
-target_link_libraries(cv_inference_pipeline 
-    ${OpenCV_LIBS} 
-    # ${TORCH_LIBRARIES}
-    onnxruntime
-)
+# ✅ Add third executable script
+add_executable(pose src/cv_inference_pipeline_model_pose.cpp)
+target_link_libraries(pose ${OpenCV_LIBS} onnxruntime)
