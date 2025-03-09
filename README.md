@@ -5,11 +5,15 @@
 ### **File Structure**
 ```plaintext
 PROJECT/
-│── src/
-│   ├── main.cpp
-│   ├── video_reader.cpp
-│── CMakeLists.txt
+│── assets/
 │── build/
+│── src/
+│   ├── cv_inference_pipeline.cpp
+│   ├── cv_inference_pipeline_model_face.cpp
+│   ├── cv_inference_pipeline_model_pose.cpp
+│── weights/
+│── CMakeLists.txt
+│── README.md/
 ```
 
 ### Update the System
@@ -95,4 +99,11 @@ cd .. && rm -rf build/ && mkdir build && cd build && cmake .. && make && ./main
 ## To run code: Code Runner Extension:
 ```bash
 use shortcut Ctrl+Alt+N
+```
+
+## Run scripts for testing:
+```bash
+make && ./main "../assets/Earth.mp4" 1
+make && ./face "../assets/person_1.mp4" 1
+make && ./pose "../assets/person_1.mp4" 1
 ```
