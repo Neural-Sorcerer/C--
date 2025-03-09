@@ -54,6 +54,7 @@ g++ -o src/main src/main.cpp && ./src/main
 ### Compile and Run a Video Reader (using OpenCV)
 
 ```bash
+g++ -o src/main src/main.cpp `pkg-config --cflags --libs opencv4` && ./src/main
 g++ -o src/video_reader src/video_reader.cpp `pkg-config --cflags --libs opencv4` && ./src/video_reader
 ```
 
@@ -87,4 +88,11 @@ sudo mv libtorch /usr/local/
 
 ```bash
 mkdir build && cd build && cmake .. && make && ./main
+mkdir build && cd build && cmake .. && make && ./cv_inference_pipeline "../assets/Earth.mp4" 1 -1 -1 -1
+rm -rf build/
+```
+
+## To run code: Code Runner Extension:
+```bash
+use shortcut Ctrl+Alt+N
 ```

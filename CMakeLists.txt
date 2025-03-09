@@ -20,10 +20,10 @@ link_directories(${ONNX_RUNTIME_DIR}/lib)
 # include_directories(${TORCH_INCLUDE_DIRS})
 
 # ✅ Add executable
-add_executable(main src/main.cpp)
+add_executable(cv_inference_pipeline src/cv_inference_pipeline.cpp)
 
 # ✅ Link libraries
-target_link_libraries(main 
+target_link_libraries(cv_inference_pipeline 
     ${OpenCV_LIBS} 
     # ${TORCH_LIBRARIES}
     onnxruntime
