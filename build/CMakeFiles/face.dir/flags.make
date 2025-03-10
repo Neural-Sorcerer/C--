@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/onnxruntime/include -isystem /usr/include/opencv4 
+CXX_INCLUDES = -isystem /usr/include/opencv4 
 
