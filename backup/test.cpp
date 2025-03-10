@@ -19,3 +19,18 @@ int main() {
 
     return 0;
 }
+
+
+    // std::cout << "OpenCV CUDA support: " << cv::cuda::getCudaEnabledDeviceCount() << " GPU(s) detected." << std::endl;
+    // Enable GPU acceleration
+    // Explicitly set CUDA backend and target
+    // faceDetector.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
+    // faceDetector.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
+
+    // std::cout << cv::getBuildInformation() << std::endl;
+    // std::cout << "Backend: " << faceDetector.getPreferableBackend() << std::endl;
+    // std::cout << "Target: " << faceDetector.getPreferableTarget() << std::endl;
+
+    // faceDetector.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
+    // faceDetector.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
+    // exit(0);
