@@ -1,9 +1,9 @@
 # Custom
 .vscode/
-# backup/
 build/
 output/
 weights/
+# backup/
 
 # Prerequisites
 *.d

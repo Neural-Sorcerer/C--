@@ -1,5 +1,0 @@
-/home/max/DELTAX_PROJECTS/PROJECTS/0_codes/C--/build/CMakeFiles/rebuild_cache.dir
-/home/max/DELTAX_PROJECTS/PROJECTS/0_codes/C--/build/CMakeFiles/edit_cache.dir
-/home/max/DELTAX_PROJECTS/PROJECTS/0_codes/C--/build/CMakeFiles/pose.dir
-/home/max/DELTAX_PROJECTS/PROJECTS/0_codes/C--/build/CMakeFiles/face.dir
-/home/max/DELTAX_PROJECTS/PROJECTS/0_codes/C--/build/CMakeFiles/main.dir
