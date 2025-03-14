@@ -103,7 +103,13 @@ use shortcut Ctrl+Alt+N
 
 ## Run scripts for testing:
 ```bash
-make && ./main "../assets/Earth.mp4" 1
-make && ./face "../assets/person_1.mp4" 1
-make && ./pose "../assets/person_1.mp4" 1
+make && ./main "../assets/Earth.mp4" 1 -1 -1 -1
+make && ./face "../assets/person_1.mp4" 1 -1 -1 -1
+make && ./pose "../assets/person_1.mp4" 1 -1 -1 -1
 ```
+
+## **Result: Inference pipiline with AI model**
+```
+make && ./face "../assets/person_1.mp4" 1 -1 -1 -1
+```
+![Demo Video](assets/result.gif)
